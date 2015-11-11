@@ -1,20 +1,17 @@
 var myApp = angular.module("myApp", []);
 
-myApp.controller("WelcomeController", ["$scope", function($scope){
+myApp.controller("WelcomeController", ["$scope", "$http", function($scope, $http){
     $scope.info = {};
+    $scope.people = [];
 
-    $scope.dana = {
-        name: "Dana Hazen",
-        location: "Brooklyn Park",
-        favNum: 42
+    $scope.getPeople = function(){
+        $http.get('/info').then(function(response){
+            $scope.people = response.data.rows;
+            console.log($scope.people);
+        });
     };
 
-    $scope.sam = {
-        name: "Sam Moss",
-        location: "NorthEast",
-        favNum: NaN
-    };
+    $scope.getPeople();
 
-    $scope.people = [$scope.dana, $scope.sam];
 }]);
 
