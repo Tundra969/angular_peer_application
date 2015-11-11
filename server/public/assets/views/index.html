@@ -21,11 +21,7 @@
 
             <div ng-controller="WelcomeController">
                 <div ng-repeat="person in people">
-                    <div class="col-md-3 well">
-                        <p>{{person.name}}</p>
-                        <p>{{person.location}}</p>
-                        <p>{{person.fav_num}}</p>
-                    </div>
+                    <profile-info info="person"></profile-info>
                 </div>
             </div>
 

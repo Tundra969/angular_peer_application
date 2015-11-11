@@ -15,7 +15,7 @@ app.get('/info', function(req,res){
                     console.log("Error retrieving data: ", err);
                     res.send(false);
                 }
-                console.log(result);
+
                 res.send(result);
             }
         )

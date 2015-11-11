@@ -7,7 +7,6 @@ myApp.controller("WelcomeController", ["$scope", "$http", function($scope, $http
     $scope.getPeople = function(){
         $http.get('/info').then(function(response){
             $scope.people = response.data.rows;
-            console.log($scope.people);
         });
     };
 
