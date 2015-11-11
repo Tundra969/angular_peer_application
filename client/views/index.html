@@ -17,6 +17,7 @@
             <h1>Hello!</h1>
 
             <div ng-controller="WelcomeController">
+
                 <table class="person">
                     <tr>
                         <th><a href="" ng-click="reverse=!reverse;order('name', reverse)">Order by Name</a></th>
@@ -24,11 +25,8 @@
                         <th><a href="" ng-click="reverse=!reverse;order('fav_num', reverse)">Order by Favorite Number</a></th>
                     </tr>
 
-                    <tr ng-repeat="person in people">
-                            <td>{{person.name}}</td>
-                            <td>{{person.location}}</td>
-                            <td>{{person.fav_num}}</td>
-                    </tr>
+                <tr ng-repeat="person in people">
+                    <profile-info info="person"></profile-info>
                 </table>
             </div>
 
