@@ -1,8 +1,25 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var pg = require('pg');
+
+var connectionString = process.env.DATABASE_URL || "postgress://localhost:5432/wk5_angular";
 
 app.set("port", process.env.PORT || 5000);
+
+app.get('/info', function(req,res){
+    pg.connect(connectionString, function(err, client){
+        res.send(client.query("SELECT FROM info *",
+            function (err,result){
+                if (err) {
+                    console.log("Error retrieving data: ", err);
+                    res.send(false);
+                }
+                res.send(true);
+            }
+        ))
+    })
+});
 
 app.get("/*", function(req,res){
     var file = req.params[0] || "assets/views/index.html";
