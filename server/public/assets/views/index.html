@@ -15,18 +15,21 @@
     <body>
         <div class="container">
             <h1>Hello!</h1>
-            <!--<button ng-click="orderName()">Order by Name</button>-->
-            <!--<button ng-click="orderLocation()">Order by Location</button>-->
-            <!--<button ng-click="orderNumber()">Order by Favorite Number</button>-->
 
             <div ng-controller="WelcomeController">
-                <div ng-repeat="person in people">
-                    <div class="col-md-3 well">
-                        <p>{{person.name}}</p>
-                        <p>{{person.location}}</p>
-                        <p>{{person.fav_num}}</p>
-                    </div>
-                </div>
+                <table class="person">
+                    <tr>
+                        <th><a href="" ng-click="reverse=!reverse;order('name', reverse)">Order by Name</a></th>
+                        <th><a href="" ng-click="reverse=!reverse;order('location', reverse)">Order by Location</a></th>
+                        <th><a href="" ng-click="reverse=!reverse;order('fav_num', reverse)">Order by Favorite Number</a></th>
+                    </tr>
+
+                    <tr ng-repeat="person in people">
+                            <td>{{person.name}}</td>
+                            <td>{{person.location}}</td>
+                            <td>{{person.fav_num}}</td>
+                    </tr>
+                </table>
             </div>
 
         </div>
