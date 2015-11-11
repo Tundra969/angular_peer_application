@@ -4,7 +4,7 @@
 myApp.directive('profileInfo',
     function(){
         return {
-            restrict: 'E',
+            restrict: "E",
             scope: {
                 info: "="
             },

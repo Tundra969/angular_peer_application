@@ -6,15 +6,16 @@ myApp.controller("WelcomeController", ["$scope", "$http", '$filter', function($s
     var orderBy = $filter('orderBy');
 
 
-    $scope.order = function(predicate, reverse) {
-        $scope.people = orderBy($scope.people, predicate, reverse);
-    };
-
     $scope.getPeople = function(){
         $http.get('/info').then(function(response){
             $scope.people = response.data.rows;
+            console.log($scope.people);
         });
 
+    };
+
+    $scope.order = function(predicate, reverse) {
+        $scope.people = orderBy($scope.people, predicate, reverse);
     };
 
     $scope.getPeople();
